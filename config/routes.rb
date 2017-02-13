@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  get 'static_pages/index'
+
   resources :seance_laboratoires
   resources :travaux_diriges
   resources :devoirs 
   resources :note_devoirs, only: [:update]
   resources :interrogations, only: [:update]
   resources :participations, only: [:update]
-  resources :users
+  resources :users, only: [:show,:index]
   resources :groups
   
   post 'devoirs/ajoute_presents' => "devoirs#ajoute_presents"
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
   post 'groups/ajoute_theory_teacher' => "groups#ajoute_theory_teacher"
   post 'groups/ajoute_etudiants' => "groups#ajoute_etudiants"
 
-  root to: 'users#index'
+  root to: 'static_pages#index'
 
 
   
