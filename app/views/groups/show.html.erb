@@ -13,7 +13,7 @@
       <%= submit_tag "ok" %>
       <% end %>
 <% else %>
-  Enseignant TP:<%=  @group.lab_teacher.user.name %>
+  Enseignant TP:<%=  @group.lab_teacher.user.try(:name) %>
   <% end %>
 </p>
 
@@ -26,7 +26,7 @@
       <%= submit_tag "ok" %>
       <% end %>
 <% else %>
-  Enseignant TD:<%=  @group.theory_teacher.user.name %>
+  Enseignant TD:<%=  @group.theory_teacher.user.try(:name) %>
   <% end %>
 </p>
 
