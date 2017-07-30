@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :seance_laboratoires
   resources :travaux_diriges
   resources :devoirs 
   resources :note_devoirs, only: [:update]
   resources :interrogations, only: [:update]
   resources :participations, only: [:update]
-  resources :users
+  resources :users, only: [:show,:index]
   resources :groups
   
   post 'devoirs/ajoute_presents' => "devoirs#ajoute_presents"
