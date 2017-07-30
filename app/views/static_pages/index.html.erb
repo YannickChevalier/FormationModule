@@ -1,0 +1,16 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Module dans formation</h2>
+
+<h2>Index disponibles</h2>
+
+<ul>
+<% ['users','groups','devoirs','seance_laboratoires','travaux_diriges'].each do |ctrl| %>
+<li><%= link_to ctrl,url_for(action: 'index', controller: ctrl) %></li>
+<% end %>
+</ul>
+
+</body>
+</html>

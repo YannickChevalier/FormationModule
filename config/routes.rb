@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post 'groups/ajoute_theory_teacher' => "groups#ajoute_theory_teacher"
   post 'groups/ajoute_etudiants' => "groups#ajoute_etudiants"
 
-  root to: 'users#index'
+  root to: 'static_pages#index'
 
 
   
