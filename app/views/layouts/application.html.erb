@@ -1,31 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FormationModule</title>
+  <title><%= yield :page_title%></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <style>
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+.max-height {
+  height: 100%;
+}
+  </style>
 </head>
 <body>
-
-<div class="container">
+<div id="page" class="container">
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>">
       <%= value %>
     </div>
   <% end %>
-</div>
-
-<%= yield :top_content %>
-
-<div class="container outer-page-content">
-  <div class="container page-header">
+  <div id="page_header" class="row">
     <h1><%= yield :header %></h1>
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CUPGE Toulouse</a>
+    </div>
+    <%= render "partials/navbar" %>
+    <%= render "partials/user_menu" %>
   </div>
-  <div class="container inner-page-content">
-  <%= yield %>
+</nav>
+  </div>
+  <div id="outer-page-content" class="row row-centered">
+    <div id="inner-page-content" class="col-10 col-centered">
+      <!-- do once access control is in place
+      <% if user_signed_in? then  %>
+	<%= yield %>
+      <% else  %>
+	<%= render "partials/sign_in" %>
+      <% end %>
+      -->
+      <%= render "partials/sign_in" %>
+      <%= yield %>
+    </div>
   </div>
 </div>
-
-</body>
 </html>

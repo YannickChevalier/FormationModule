@@ -1,18 +1,10 @@
-<p id="notice"><%= notice %></p>
-
+<% header "#{@user.lastname}, #{@user.firstname}" %>
+<% page_title "Utilisateur #{@user.firstname} #{@user.lastname}" %>
 <p>
-  <strong>Firstname:</strong>
-  <%= @user.firstname %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @user.lastname %>
-</p>
 
 <p>
   <strong>Numero:</strong>
   <%= @user.numero %>
 </p>
 
-<%= link_to 'Index', users_path %>
+<%= link_to 'Liste des utilisateurs', users_path %>
