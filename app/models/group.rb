@@ -5,6 +5,7 @@ class Group < ActiveRecord::Base
   has_one :enseignant_tp, through: :lab_teacher, source: "user"
   has_one :theory_teacher
   has_one :enseignant_td, through: :theory_teacher, source: "user"
+  resourcify
 
 
   def td

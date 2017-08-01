@@ -1,0 +1,2 @@
+class ModuleFormationsController < ApplicationController
+end

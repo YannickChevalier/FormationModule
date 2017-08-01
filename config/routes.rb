@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :module_formations
+  resources :formations
   devise_for :users
   resources :seance_laboratoires
   resources :travaux_diriges
